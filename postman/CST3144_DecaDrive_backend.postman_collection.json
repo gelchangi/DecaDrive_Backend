@@ -1,0 +1,64 @@
+{
+  "info": {
+    "name": "CST3144 DecaDrive Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "decadrive-backend-collection"
+  },
+  "variable": [{ "key": "BASE_URL", "value": "http://localhost:8080" }],
+  "item": [
+    {
+      "name": "List lessons",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/lessons",
+          "host": ["{{BASE_URL}}"],
+          "path": ["lessons"]
+        }
+      }
+    },
+    {
+      "name": "Search lessons (q=beginner)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/lessons?q=beginner",
+          "host": ["{{BASE_URL}}"],
+          "path": ["lessons"],
+          "query": [{ "key": "q", "value": "beginner" }]
+        }
+      }
+    },
+    {
+      "name": "Create order",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Alice\",\n  \"phone\": \"12345678\",\n  \"items\": [{ \"lessonId\": \"<lessonId>\", \"quantity\": 1 }]\n}"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/orders",
+          "host": ["{{BASE_URL}}"],
+          "path": ["orders"]
+        }
+      }
+    },
+    {
+      "name": "Update lesson (partial)",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"spaces\": 10\n}" },
+        "url": {
+          "raw": "{{BASE_URL}}/lessons/<lessonId>",
+          "host": ["{{BASE_URL}}"],
+          "path": ["lessons", "<lessonId>"]
+        }
+      }
+    }
+  ]
+}
