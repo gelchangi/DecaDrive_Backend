@@ -105,6 +105,11 @@ async function createOrder(req, res, next) {
 
         await session.commitTransaction();
         session.endSession();
+        console.log(
+          `✓ Order created successfully: ID=${
+            ins.insertedId
+          }, Customer=${name.trim()}, Total=$${total}`
+        );
         return res
           .status(201)
           .json({ status: "success", orderId: ins.insertedId, total });
@@ -142,6 +147,11 @@ async function createOrder(req, res, next) {
         timestamp: new Date(),
       };
       const ins = await db.collection("orders").insertOne(orderDoc);
+      console.log(
+        `✓ Order created successfully: ID=${
+          ins.insertedId
+        }, Customer=${name.trim()}, Total=$${total}`
+      );
       return res
         .status(201)
         .json({ status: "success", orderId: ins.insertedId, total });
