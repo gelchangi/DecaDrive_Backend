@@ -643,16 +643,6 @@ lsof -ti:3000 | xargs kill -9
 
 ---
 
-## Notes
-
-### Unsplash Placeholder Images
-
-The seed script uses Unsplash's placeholder image service:
-
-```
-https://source.unsplash.com/800x600/?driving,car,<keyword>
-```
-
 These URLs:
 
 - Return random driving/car-related images
@@ -664,28 +654,3 @@ For production, consider:
 
 - Uploading custom lesson images to cloud storage (AWS S3, Cloudinary)
 - Replacing URLs in database after deployment
-
-### Transaction Support
-
-- **MongoDB Atlas (replica set):** Full transaction support — atomicity guaranteed
-- **Standalone MongoDB:** Transactions not supported — uses conditional updates with manual rollback
-- See `docs/IMPLEMENTATION_NOTES.md` for detailed explanation
-
----
-
-## License
-
-MIT
-
----
-
-## Questions?
-
-For coursework support:
-
-- Review inline code comments in `controllers/` and `routes/` files
-- Check `docs/IMPLEMENTATION_NOTES.md` for technical explanations
-- Test endpoints with Postman collection
-- Review acceptance tests in `DELIVERED.md`
-
-**Remember:** All source files include detailed comments explaining validation rules, transaction handling, and API behavior — use these during your demo presentation.
