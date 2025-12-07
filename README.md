@@ -642,15 +642,3 @@ lsof -ti:3000 | xargs kill -9
 | `test`  | `npm test`     | (Placeholder - no tests configured)       |
 
 ---
-
-These URLs:
-
-- Return random driving/car-related images
-- Work directly in HTML `<img>` tags
-- Are free to use for development/testing
-- May show different images on each load (cache for consistency in production)
-
-For production, consider:
-
-- Uploading custom lesson images to cloud storage (AWS S3, Cloudinary)
-- Replacing URLs in database after deployment
